@@ -13,258 +13,54 @@
 /* Add this CSS to your existing HTML file */
 
 /* Core Layout & Structure */
+/* Journalism - ULTRA MINIMAL CSS */
+
 .journalism-funding-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: #f5f9fc;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    line-height: 1.6;
-    color: #333;
+    max-width: 900px;
+    margin: auto;
+    padding: 10px;
+    font-family: sans-serif;
 }
 
-.journalism-header {
-    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
-    color: white;
-    padding: 40px 30px;
-    border-radius: 10px;
-    margin-bottom: 30px;
-    text-align: center;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-}
+.journalism-header { background: #1e3c72; color: white; padding: 20px; text-align: center; margin-bottom: 20px; }
+.journalism-header h1 { margin: 0 0 10px 0; font-size: 24px; }
+.journalism-header p { margin: 0; font-size: 16px; }
 
-.journalism-header h1 {
-    font-size: 2.8rem;
-    margin-bottom: 15px;
-    font-weight: 700;
-}
+.journalism-section { background: white; padding: 20px; margin-bottom: 20px; border: 1px solid #ddd; }
+.journalism-section h2 { color: #1e3c72; border-bottom: 2px solid #2a5298; padding-bottom: 8px; margin: 0 0 15px 0; }
+.journalism-section h3 { color: #2a5298; margin: 15px 0 10px 0; }
 
-.journalism-header p {
-    font-size: 1.2rem;
-    max-width: 800px;
-    margin: 0 auto;
-    opacity: 0.9;
-}
+.journalism-stats { margin: 20px 0; }
+@media (min-width: 600px) { .journalism-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; } }
+.stat-card { border-left: 4px solid #2a5298; padding: 15px; background: #f8f9fa; margin-bottom: 15px; }
+.stat-card h4 { color: #1e3c72; margin: 0 0 8px 0; }
+.stat-number { font-size: 24px; font-weight: bold; color: #1e3c72; display: block; margin: 8px 0; }
+.stat-source { font-size: 14px; color: #666; font-style: italic; }
 
-/* Content Sections */
-.journalism-section {
-    background: white;
-    border-radius: 10px;
-    padding: 30px;
-    margin-bottom: 30px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-    transition: transform 0.3s ease;
-}
+.journalism-list { list-style: none; padding: 0; margin: 15px 0; }
+.journalism-list li { padding: 8px 0 8px 25px; position: relative; }
+.journalism-list li:before { content: "•"; position: absolute; left: 0; color: #2a5298; font-size: 20px; }
 
-.journalism-section:hover {
-    transform: translateY(-5px);
-}
+.domain-tag { display: inline-block; background: #e8f0fe; color: #1e3c72; padding: 5px 10px; margin: 4px; border: 1px solid #b8d4ff; }
 
-.journalism-section h2 {
-    color: #1e3c72;
-    border-bottom: 3px solid #2a5298;
-    padding-bottom: 10px;
-    margin-bottom: 25px;
-    font-size: 1.8rem;
-}
+.journalism-table { width: 100%; border-collapse: collapse; margin: 15px 0; }
+.journalism-table th { background: #1e3c72; color: white; text-align: left; padding: 10px; }
+.journalism-table td { padding: 10px; border-bottom: 1px solid #ddd; }
+.journalism-table tr:nth-child(even) { background: #f8f9fa; }
 
-.journalism-section h3 {
-    color: #2a5298;
-    margin: 20px 0 15px;
-    font-size: 1.4rem;
-}
+.highlight-box { border-left: 4px solid #2a5298; padding: 15px; margin: 15px 0; background: #f8f9fa; }
+.highlight-box.important { border-left-color: #ff9800; background: #fff8e1; }
+.highlight-box.success { border-left-color: #4caf50; background: #e8f5e9; }
 
-/* Stats & Figures */
-.journalism-stats {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 25px;
-    margin: 30px 0;
-}
+.journalism-lead { font-size: 18px; font-weight: bold; color: #1e3c72; margin: 15px 0; }
+.journalism-note { font-style: italic; color: #666; border-left: 2px solid #ccc; padding-left: 10px; margin: 15px 0; }
 
-.stat-card {
-    background: #f0f7ff;
-    border-left: 5px solid #2a5298;
-    padding: 20px;
-    border-radius: 8px;
-}
+.journalism-actions { margin: 20px 0; }
+.action-btn { padding: 10px 20px; background: #2a5298; color: white; border: none; margin: 5px; cursor: pointer; display: inline-block; }
+.action-btn.secondary { background: white; color: #1e3c72; border: 2px solid #2a5298; }
 
-.stat-card h4 {
-    color: #1e3c72;
-    margin-bottom: 10px;
-    font-size: 1.2rem;
-}
-
-.stat-number {
-    font-size: 2.2rem;
-    font-weight: 700;
-    color: #1e3c72;
-    display: block;
-    margin: 10px 0;
-}
-
-.stat-source {
-    font-size: 0.85rem;
-    color: #666;
-    font-style: italic;
-}
-
-/* Lists & Details */
-.journalism-list {
-    list-style-type: none;
-    margin: 20px 0;
-}
-
-.journalism-list li {
-    padding: 12px 0 12px 35px;
-    position: relative;
-    border-bottom: 1px solid #eee;
-}
-
-.journalism-list li:before {
-    content: "✓";
-    position: absolute;
-    left: 0;
-    top: 12px;
-    background-color: #2a5298;
-    color: white;
-    width: 24px;
-    height: 24px;
-    border-radius: 50%;
-    text-align: center;
-    line-height: 24px;
-    font-weight: bold;
-}
-
-.domain-tag {
-    display: inline-block;
-    background: #e8f0fe;
-    color: #1e3c72;
-    padding: 5px 12px;
-    border-radius: 20px;
-    margin: 5px;
-    font-size: 0.9rem;
-    border: 1px solid #b8d4ff;
-}
-
-/* Tables */
-.journalism-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin: 25px 0;
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
-}
-
-.journalism-table th {
-    background-color: #1e3c72;
-    color: white;
-    text-align: left;
-    padding: 15px;
-}
-
-.journalism-table td {
-    padding: 15px;
-    border-bottom: 1px solid #eee;
-}
-
-.journalism-table tr:nth-child(even) {
-    background-color: #f8fbff;
-}
-
-.journalism-table tr:hover {
-    background-color: #f0f7ff;
-}
-
-/* Highlight Boxes */
-.highlight-box {
-    background: linear-gradient(135deg, #f0f7ff 0%, #e3eeff 100%);
-    border-left: 5px solid #2a5298;
-    padding: 25px;
-    margin: 25px 0;
-    border-radius: 8px;
-}
-
-.highlight-box.important {
-    background: linear-gradient(135deg, #fff8e1 0%, #ffecb3 100%);
-    border-left-color: #ff9800;
-}
-
-.highlight-box.success {
-    background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
-    border-left-color: #4caf50;
-}
-
-/* Typography */
-.journalism-lead {
-    font-size: 1.3rem;
-    font-weight: 500;
-    color: #1e3c72;
-    margin: 20px 0;
-    line-height: 1.5;
-}
-
-.journalism-note {
-    font-style: italic;
-    color: #666;
-    border-left: 3px solid #ccc;
-    padding-left: 15px;
-    margin: 20px 0;
-}
-
-/* Buttons & Actions */
-.journalism-actions {
-    display: flex;
-    gap: 15px;
-    margin: 30px 0;
-    flex-wrap: wrap;
-}
-
-.action-btn {
-    padding: 12px 25px;
-    background: #2a5298;
-    color: white;
-    border: none;
-    border-radius: 6px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    text-decoration: none;
-    display: inline-block;
-}
-
-.action-btn:hover {
-    background: #1e3c72;
-    transform: translateY(-3px);
-    box-shadow: 0 5px 15px rgba(30, 60, 114, 0.2);
-}
-
-.action-btn.secondary {
-    background: #f0f7ff;
-    color: #1e3c72;
-    border: 2px solid #2a5298;
-}
-
-.action-btn.secondary:hover {
-    background: #2a5298;
-    color: white;
-}
-
-/* Footer */
-.journalism-footer {
-    text-align: center;
-    margin-top: 50px;
-    padding-top: 20px;
-    border-top: 1px solid #ddd;
-    color: #666;
-    font-size: 0.9rem;
-}
-
-.journalism-footer a {
-    color: #2a5298;
-    text-decoration: none;
-}
+.journalism-footer { text-align: center; margin-top: 30px; padding-top: 15px; border-top: 1px solid #ddd; color: #666; font-size: 14px; }
+.journalism-footer a { color: #2a5298; text-decoration: none; }
 
 /* Responsive Design */
 @media (max-width: 768px) {
