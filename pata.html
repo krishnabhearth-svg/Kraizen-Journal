@@ -1,0 +1,1113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Patanjali Mudra Formula</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@300;400;600&family=Crimson+Pro:ital,wght@0,300;0,400;1,300;1,400&family=Noto+Sans+Devanagari:wght@300;400&display=swap');
+
+  :root {
+    --bg: #1a1714;
+    --bg2: #221f1a;
+    --bg3: #2a261f;
+    --cream: #e8ddd0;
+    --cream-dim: #a89d8e;
+    --gold: #d4a853;
+    --gold-soft: rgba(212,168,83,0.18);
+    --gold-glow: rgba(212,168,83,0.35);
+    --terracotta: #c07a5a;
+    --sage: #7a9e7e;
+    --sage-soft: rgba(122,158,126,0.15);
+    --sky: #7a9db5;
+    --border: rgba(212,168,83,0.13);
+  }
+
+  * { margin:0; padding:0; box-sizing:border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--cream);
+    font-family: 'Crimson Pro', Georgia, serif;
+    font-size: 17px;
+    line-height: 1.85;
+    overflow-x: hidden;
+  }
+
+  /* ─── AMBIENT ─── */
+  body::before {
+    content:'';
+    position:fixed; inset:0; z-index:0;
+    background:
+      radial-gradient(ellipse 90% 40% at 50% 0%, rgba(212,168,83,0.04) 0%, transparent 70%),
+      radial-gradient(ellipse 60% 50% at 15% 60%, rgba(122,158,126,0.03) 0%, transparent 70%),
+      radial-gradient(ellipse 50% 40% at 85% 80%, rgba(192,122,90,0.03) 0%, transparent 70%);
+    pointer-events:none;
+  }
+
+  .wrap { position:relative; z-index:1; max-width:900px; margin:0 auto; padding:0 28px 120px; }
+
+  /* ─── UTILITY ─── */
+  .gold { color: var(--gold); }
+  .sage { color: var(--sage); }
+  .terra { color: var(--terracotta); }
+  .sky-c { color: var(--sky); }
+  .dim { color: var(--cream-dim); }
+  .italic { font-style:italic; }
+
+  p { margin-bottom:18px; color: var(--cream-dim); font-size:16.5px; }
+  p.lead { font-size:19px; color: var(--cream); line-height:2; margin-bottom:26px; }
+
+  hr.river {
+    border:none;
+    height:1px;
+    background: linear-gradient(90deg, transparent, var(--border), transparent);
+    margin: 56px 0;
+  }
+
+  /* ═══════════════════════════════════════
+     COVER
+     ═══════════════════════════════════════ */
+  .cover {
+    text-align:center;
+    padding: 90px 0 70px;
+    position:relative;
+  }
+
+  /* Vertical breath-line above symbol */
+  .cover::before {
+    content:'';
+    position:absolute;
+    top:44px; left:50%;
+    transform:translateX(-50%);
+    width:1px; height:46px;
+    background: linear-gradient(to bottom, transparent, var(--gold));
+    opacity:0.45;
+  }
+
+  /* ── NAMASKAR SVG + ORBIT ── */
+  .mudra-wrap {
+    width:260px; height:260px;
+    margin:0 auto 32px;
+    position:relative;
+  }
+
+  /* Orbit ring */
+  .orbit-ring {
+    position:absolute; inset:0;
+    border-radius:50%;
+    border:1px solid rgba(212,168,83,0.12);
+    animation: spin 28s linear infinite;
+  }
+  @keyframes spin { to { transform:rotate(360deg); } }
+
+  /* Orbit dots: Paata, Pata, Patte */
+  .orbit-dot {
+    position:absolute;
+    width:52px; height:52px;
+    border-radius:50%;
+    background: var(--bg2);
+    border:1px solid var(--border);
+    display:flex; flex-direction:column;
+    align-items:center; justify-content:center;
+    box-shadow: 0 0 14px rgba(212,168,83,0.1);
+    /* counter-rotate so text stays upright */
+    animation: counter-spin 28s linear infinite;
+  }
+  @keyframes counter-spin { to { transform:rotate(-360deg); } }
+
+  .orbit-dot .od-deva {
+    font-family:'Noto Sans Devanagari', sans-serif;
+    font-size:13px; color: var(--gold); line-height:1.1;
+  }
+  .orbit-dot .od-eng {
+    font-family:'Cinzel', serif;
+    font-size:8px; letter-spacing:1.5px;
+    color: var(--cream-dim); text-transform:uppercase;
+  }
+
+  /* Position the 3 dots on the ring (top, bottom-left, bottom-right) */
+  .orbit-dot.paata { top:-4px; left:50%; transform:translateX(-50%); }
+  .orbit-dot.pata  { bottom:12px; left:4px; }
+  .orbit-dot.patte { bottom:12px; right:4px; }
+
+  /* Central Namaskar SVG */
+  .namaskar-svg {
+    position:absolute;
+    top:50%; left:50%;
+    transform:translate(-50%,-50%);
+    width:120px; height:140px;
+  }
+
+  /* Glow behind hands */
+  .mudra-glow {
+    position:absolute;
+    top:50%; left:50%;
+    transform:translate(-50%,-50%);
+    width:100px; height:100px;
+    border-radius:50%;
+    background: radial-gradient(circle, rgba(212,168,83,0.12) 0%, transparent 70%);
+    animation: breathe 5s ease-in-out infinite;
+  }
+  @keyframes breathe {
+    0%,100% { transform:translate(-50%,-50%) scale(0.92); opacity:0.7; }
+    50%     { transform:translate(-50%,-50%) scale(1.08); opacity:1; }
+  }
+
+  /* ── Cover text ── */
+  .cover-formula {
+    font-family:'Cinzel', serif;
+    font-size:13px; letter-spacing:5px;
+    color: var(--gold); text-transform:uppercase;
+    margin-bottom:14px; opacity:0.7;
+  }
+  .cover h1 {
+    font-family:'Cinzel', serif;
+    font-weight:300; font-size:38px;
+    color:#f0e8dc; letter-spacing:2px;
+    line-height:1.3; margin-bottom:10px;
+  }
+  .cover .tagline {
+    font-style:italic; font-size:18px;
+    color: var(--cream-dim); margin-bottom:28px;
+  }
+  .cover-divider { width:48px; height:1px; background:var(--gold); margin:0 auto 24px; opacity:0.4; }
+  .cover-sub {
+    font-family:'Cinzel', serif; font-size:10px;
+    letter-spacing:3px; color: var(--cream-dim);
+    text-transform:uppercase; opacity:0.55;
+  }
+
+  /* ═══════════════════════════════════════
+     SECTION HEADERS
+     ═══════════════════════════════════════ */
+  .sec-label {
+    font-family:'Cinzel', serif;
+    font-size:9px; letter-spacing:3.5px;
+    color: var(--gold); text-transform:uppercase;
+    margin-bottom:8px; opacity:0.6;
+  }
+  h2 {
+    font-family:'Cinzel', serif;
+    font-weight:300; font-size:28px;
+    color:#ede5d8; letter-spacing:1px;
+    margin-bottom:6px;
+  }
+  h3 {
+    font-family:'Cinzel', serif;
+    font-weight:400; font-size:19px;
+    color: var(--gold); margin:22px 0 8px;
+  }
+
+  /* ═══════════════════════════════════════
+     CARDS
+     ═══════════════════════════════════════ */
+  .card {
+    background: var(--bg2);
+    border:1px solid var(--border);
+    border-radius:12px;
+    padding:30px 32px;
+    margin:28px 0;
+    position:relative; overflow:hidden;
+  }
+  .card::before {
+    content:''; position:absolute;
+    top:0; left:0; right:0; height:2px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    opacity:0.45;
+  }
+  .card.sage-top::before { background: linear-gradient(90deg, transparent, var(--sage), transparent); }
+  .card.terra-top::before { background: linear-gradient(90deg, transparent, var(--terracotta), transparent); }
+  .card.sky-top::before { background: linear-gradient(90deg, transparent, var(--sky), transparent); }
+
+  /* ═══════════════════════════════════════
+     QUOTE / MANTRA BLOCK
+     ═══════════════════════════════════════ */
+  .mantra-block {
+    text-align:center;
+    padding:36px 28px;
+    margin:32px 0;
+    background: linear-gradient(180deg, rgba(212,168,83,0.04) 0%, transparent 100%);
+    border-top:1px solid var(--border);
+    border-bottom:1px solid var(--border);
+  }
+  .mantra-deva {
+    font-family:'Noto Sans Devanagari', sans-serif;
+    font-size:22px; color: var(--gold);
+    margin-bottom:6px; letter-spacing:1px;
+  }
+  .mantra-eng {
+    font-style:italic; font-size:16px;
+    color: var(--cream-dim); margin-bottom:10px;
+  }
+  .mantra-meaning {
+    font-size:14px; color: var(--cream-dim);
+    max-width:520px; margin:0 auto;
+    line-height:1.7;
+  }
+
+  /* ═══════════════════════════════════════
+     THREE PILLARS (Paata / Pata / Patte)
+     ═══════════════════════════════════════ */
+  .three-pillars {
+    display:grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap:16px;
+    margin:28px 0;
+  }
+  .pillar {
+    background: var(--bg2);
+    border:1px solid var(--border);
+    border-radius:10px;
+    padding:26px 18px;
+    text-align:center;
+    position:relative; overflow:hidden;
+  }
+  .pillar::after {
+    content:'';
+    position:absolute;
+    bottom:0; left:0; right:0; height:2px;
+  }
+  .pillar.p1::after { background: linear-gradient(90deg, transparent, var(--gold), transparent); }
+  .pillar.p2::after { background: linear-gradient(90deg, transparent, var(--sage), transparent); }
+  .pillar.p3::after { background: linear-gradient(90deg, transparent, var(--terracotta), transparent); }
+
+  .pillar .p-deva {
+    font-family:'Noto Sans Devanagari', sans-serif;
+    font-size:24px; margin-bottom:2px;
+  }
+  .pillar.p1 .p-deva { color: var(--gold); }
+  .pillar.p2 .p-deva { color: var(--sage); }
+  .pillar.p3 .p-deva { color: var(--terracotta); }
+
+  .pillar .p-eng {
+    font-family:'Cinzel', serif;
+    font-size:11px; letter-spacing:2px;
+    text-transform:uppercase;
+    color: var(--cream-dim); margin-bottom:12px;
+  }
+  .pillar .p-desc {
+    font-size:14px; color: var(--cream-dim);
+    line-height:1.65; margin-bottom:0;
+  }
+
+  /* ═══════════════════════════════════════
+     SIGNAL ROW (two-col)
+     ═══════════════════════════════════════ */
+  .signal-row {
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:14px; margin:22px 0;
+  }
+  .signal-item {
+    background: var(--bg3);
+    border:1px solid rgba(255,255,255,0.05);
+    border-radius:8px;
+    padding:18px 18px;
+    display:flex; gap:12px; align-items:flex-start;
+  }
+  .sig-icon { font-size:20px; min-width:24px; text-align:center; margin-top:2px; }
+  .sig-title { font-family:'Cinzel', serif; font-size:15px; color:#ddd5c8; margin-bottom:3px; }
+  .sig-desc { font-size:13px; color: var(--cream-dim); line-height:1.55; margin-bottom:0; }
+
+  /* ═══════════════════════════════════════
+     MOON CYCLE STRIP
+     ═══════════════════════════════════════ */
+  .moon-strip {
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:0;
+    margin:30px 0;
+  }
+  .moon-phase {
+    text-align:center;
+    flex:1; max-width:140px;
+    position:relative;
+  }
+  .moon-phase .m-icon { font-size:32px; margin-bottom:6px; display:block; }
+  .moon-phase .m-label {
+    font-family:'Cinzel', serif;
+    font-size:10px; letter-spacing:2px;
+    text-transform:uppercase; color: var(--gold);
+    margin-bottom:4px;
+  }
+  .moon-phase .m-text { font-size:13px; color: var(--cream-dim); margin-bottom:0; line-height:1.5; }
+  .moon-arrow {
+    font-size:18px; color: var(--border);
+    padding:0 4px; margin-top:-18px;
+  }
+
+  /* ═══════════════════════════════════════
+     ANJALI FORMULA BLOCK (center piece)
+     ═══════════════════════════════════════ */
+  .anjali-block {
+    background: linear-gradient(135deg, #1e1b16 0%, #231f18 100%);
+    border:1px solid rgba(212,168,83,0.22);
+    border-radius:14px;
+    padding:44px 32px;
+    text-align:center;
+    margin:40px 0;
+    position:relative; overflow:hidden;
+  }
+  .anjali-block::before {
+    content:'';
+    position:absolute; inset:0;
+    background: radial-gradient(ellipse at center, rgba(212,168,83,0.06) 0%, transparent 65%);
+    pointer-events:none;
+  }
+  .anjali-label {
+    font-family:'Cinzel', serif;
+    font-size:9px; letter-spacing:4px;
+    color: var(--gold); text-transform:uppercase;
+    margin-bottom:16px; position:relative; opacity:0.7;
+  }
+  .anjali-hands { font-size:48px; margin-bottom:10px; position:relative; }
+  .anjali-formula {
+    font-family:'Cinzel', serif;
+    font-size:22px; color: var(--gold);
+    letter-spacing:3px; margin-bottom:8px;
+    position:relative;
+  }
+  .anjali-deva {
+    font-family:'Noto Sans Devanagari', sans-serif;
+    font-size:18px; color: var(--cream-dim);
+    margin-bottom:14px; position:relative;
+  }
+  .anjali-split {
+    display:flex; justify-content:center; gap:40px;
+    margin:18px 0; position:relative;
+  }
+  .anjali-part { text-align:center; }
+  .anjali-part .ap-symbol { font-size:26px; margin-bottom:4px; }
+  .anjali-part .ap-word {
+    font-family:'Cinzel', serif;
+    font-size:12px; letter-spacing:2px;
+    color: var(--gold); text-transform:uppercase;
+    margin-bottom:3px;
+  }
+  .anjali-part .ap-mean { font-size:13px; color: var(--cream-dim); margin-bottom:0; }
+  .anjali-note {
+    font-size:15px; color: var(--cream-dim);
+    max-width:540px; margin:18px auto 0;
+    line-height:1.75; position:relative;
+    font-style:italic;
+  }
+
+  /* ═══════════════════════════════════════
+     VERTICAL FLOW STEPS
+     ═══════════════════════════════════════ */
+  .flow-steps {
+    padding-left:30px; margin:24px 0;
+    position:relative;
+  }
+  .flow-steps::before {
+    content:''; position:absolute;
+    left:10px; top:4px; bottom:4px; width:1px;
+    background: linear-gradient(to bottom, var(--gold), var(--sage), var(--terracotta), transparent);
+    opacity:0.3;
+  }
+  .flow-step { position:relative; margin-bottom:20px; }
+  .flow-step::before {
+    content:''; position:absolute;
+    left:-24px; top:7px;
+    width:9px; height:9px; border-radius:50%;
+    background: var(--gold); border:2px solid var(--bg);
+    box-shadow: 0 0 6px var(--gold-soft);
+  }
+  .flow-step .fs-title {
+    font-family:'Cinzel', serif; font-size:15px;
+    color:#ddd5c8; margin-bottom:2px;
+  }
+  .flow-step .fs-text { font-size:14px; color: var(--cream-dim); margin-bottom:0; }
+
+  /* ═══════════════════════════════════════
+     FOOTER
+     ═══════════════════════════════════════ */
+  .footer {
+    text-align:center;
+    padding:56px 0 16px;
+    border-top:1px solid var(--border);
+    margin-top:70px;
+  }
+  .footer .f-hands { font-size:30px; margin-bottom:10px; opacity:0.5; }
+  .footer .f-formula {
+    font-family:'Cinzel', serif;
+    font-size:11px; letter-spacing:3px;
+    color: var(--gold); text-transform:uppercase;
+    margin-bottom:6px; opacity:0.6;
+  }
+  .footer .f-author {
+    font-family:'Cinzel', serif;
+    font-size:15px; color:#c8bfb0;
+    letter-spacing:1px; margin-bottom:3px;
+  }
+  .footer .f-sub { font-size:11px; color: var(--cream-dim); opacity:0.5; margin-bottom:0; }
+
+  /* ═══════════════════════════════════════
+     RESPONSIVE
+     ═══════════════════════════════════════ */
+  @media (max-width:640px) {
+    .three-pillars { grid-template-columns:1fr; }
+    .signal-row { grid-template-columns:1fr; }
+    .cover h1 { font-size:28px; }
+    .wrap { padding:0 18px 90px; }
+    .mudra-wrap { width:220px; height:220px; }
+    .orbit-dot { width:44px; height:44px; }
+    .anjali-split { flex-direction:column; align-items:center; gap:18px; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<!-- ═══════════ COVER ═══════════ -->
+<header class="cover">
+
+  <div class="mudra-wrap">
+    <!-- Orbit ring -->
+    <div class="orbit-ring"></div>
+
+    <!-- Glow -->
+    <div class="mudra-glow"></div>
+
+    <!-- 3 Orbit Labels -->
+    <div class="orbit-dot paata">
+      <span class="od-deva">पाता</span>
+      <span class="od-eng">Paata</span>
+    </div>
+    <div class="orbit-dot pata">
+      <span class="od-deva">पत</span>
+      <span class="od-eng">Pata</span>
+    </div>
+    <div class="orbit-dot patte">
+      <span class="od-deva">पत्ते</span>
+      <span class="od-eng">Patte</span>
+    </div>
+
+    <!-- Namaskar SVG hands -->
+    <svg class="namaskar-svg" viewBox="0 0 100 130" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="handGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#e8ddd0"/>
+          <stop offset="60%" stop-color="#d4a853"/>
+          <stop offset="100%" stop-color="#c07a5a"/>
+        </linearGradient>
+        <filter id="handShadow">
+          <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="rgba(212,168,83,0.25)"/>
+        </filter>
+      </defs>
+      <!-- Left hand (mirrored) -->
+      <g filter="url(#handShadow)" opacity="0.95">
+        <!-- Palm left -->
+        <path d="M38 58 C34 52, 30 48, 28 42 C26 36, 27 30, 30 28 C32 26, 34 28, 35 32 C35 36, 36 40, 37 44" fill="url(#handGrad)" opacity="0.88"/>
+        <!-- Index left -->
+        <path d="M37 44 C36 38, 35 30, 36 24 C37 18, 39 16, 41 18 C42 22, 42 28, 42 34 C42 38, 42 42, 41 46" fill="url(#handGrad)"/>
+        <!-- Middle left -->
+        <path d="M41 46 C41 40, 41 32, 42 26 C43 20, 45 18, 47 20 C48 24, 48 30, 48 36 C48 40, 47 44, 46 48" fill="url(#handGrad)"/>
+        <!-- Ring left -->
+        <path d="M46 48 C46 42, 47 35, 48 30 C49 25, 51 24, 52 26 C53 30, 53 35, 52 40 C51 44, 50 48, 49 50" fill="url(#handGrad)" opacity="0.92"/>
+        <!-- Pinky left -->
+        <path d="M49 50 C49 45, 50 40, 51 36 C52 33, 53 32, 54 34 C55 37, 54 42, 53 46 C52 49, 51 51, 50 52" fill="url(#handGrad)" opacity="0.85"/>
+        <!-- Wrist left -->
+        <path d="M28 42 C24 48, 22 56, 24 64 C26 72, 30 78, 35 82 C38 84, 40 84, 42 82 L44 70 C42 66, 38 62, 36 58 Z" fill="url(#handGrad)" opacity="0.82"/>
+      </g>
+      <!-- Right hand -->
+      <g filter="url(#handShadow)" opacity="0.95">
+        <!-- Palm right -->
+        <path d="M62 58 C66 52, 70 48, 72 42 C74 36, 73 30, 70 28 C68 26, 66 28, 65 32 C65 36, 64 40, 63 44" fill="url(#handGrad)" opacity="0.88"/>
+        <!-- Index right -->
+        <path d="M63 44 C64 38, 65 30, 64 24 C63 18, 61 16, 59 18 C58 22, 58 28, 58 34 C58 38, 58 42, 59 46" fill="url(#handGrad)"/>
+        <!-- Middle right -->
+        <path d="M59 46 C59 40, 59 32, 58 26 C57 20, 55 18, 53 20 C52 24, 52 30, 52 36 C52 40, 53 44, 54 48" fill="url(#handGrad)"/>
+        <!-- Ring right -->
+        <path d="M54 48 C54 42, 53 35, 52 30 C51 25, 49 24, 48 26 C47 30, 47 35, 48 40 C49 44, 50 48, 51 50" fill="url(#handGrad)" opacity="0.92"/>
+        <!-- Pinky right -->
+        <path d="M51 50 C51 45, 50 40, 49 36 C48 33, 47 32, 46 34 C45 37, 46 42, 47 46 C48 49, 49 51, 50 52" fill="url(#handGrad)" opacity="0.85"/>
+        <!-- Wrist right -->
+        <path d="M72 42 C76 48, 78 56, 76 64 C74 72, 70 78, 65 82 C62 84, 60 84, 58 82 L56 70 C58 66, 62 62, 64 58 Z" fill="url(#handGrad)" opacity="0.82"/>
+      </g>
+      <!-- Center seam / prayer line -->
+      <line x1="50" y1="22" x2="50" y2="78" stroke="rgba(212,168,83,0.3)" stroke-width="0.8"/>
+      <!-- Subtle fingertip glow dots -->
+      <circle cx="41" cy="18" r="1.5" fill="var(--gold)" opacity="0.4"/>
+      <circle cx="47" cy="19" r="1.5" fill="var(--gold)" opacity="0.4"/>
+      <circle cx="59" cy="18" r="1.5" fill="var(--gold)" opacity="0.4"/>
+      <circle cx="53" cy="19" r="1.5" fill="var(--gold)" opacity="0.4"/>
+    </svg>
+  </div>
+
+  <div class="cover-formula">🙏 The Patanjali Mudra Formula</div>
+  <h1>पतंजलि मुद्रा</h1>
+  <p class="tagline">Paata · Pata · Patte — orbiting the sacred Anjali</p>
+  <div class="cover-divider"></div>
+  <div class="cover-sub">An ancient formula, always present · Now understood</div>
+</header>
+
+<!-- ═══════════ I. THE ANJALI FORMULA ═══════════ -->
+<section>
+  <div class="sec-label">I · The Formula</div>
+  <h2>Anjali — The Sacred Vessel</h2>
+
+  <p class="lead">
+    When the hands come together in Namaskar — this is not merely greeting. This is a <span class="gold">formula</span>. The hands pressed together hold everything: what to eat, what to drink, how to live. The answer is inside the mudra itself.
+  </p>
+
+  <div class="anjali-block">
+    <div class="anjali-label">The Central Equation</div>
+    <div class="anjali-hands">🙏</div>
+    <div class="anjali-formula">PATANJALI</div>
+    <div class="anjali-deva">पतंजलि मुद्रा सूत्र</div>
+
+    <div class="anjali-split">
+      <div class="anjali-part">
+        <div class="ap-symbol">🍃</div>
+        <div class="ap-word">Pata</div>
+        <p class="ap-mean">Nature<br><span class="dim" style="font-size:12px;">पत — the leaf</span></p>
+      </div>
+      <div class="anjali-part">
+        <div class="ap-symbol" style="font-size:30px;">🙌</div>
+        <div class="ap-word">Anjali</div>
+        <p class="ap-mean">Sacred Hands<br><span class="dim" style="font-size:12px;">अंजलि — the prayer</span></p>
+      </div>
+      <div class="anjali-part">
+        <div class="ap-symbol">🌿</div>
+        <div class="ap-word">Ann + Jal</div>
+        <p class="ap-mean">Food + Water<br><span class="dim" style="font-size:12px;">अन् + जल — nourishment</span></p>
+      </div>
+    </div>
+
+    <p class="anjali-note">
+      Anjali holds Ann and Jal — food and water. When the hands rest in this mudra regularly, the body and mind begin to know — without being told — what nourishes and what does not. This is not belief. This is the body's own intelligence awakening.
+    </p>
+  </div>
+</section>
+
+<hr class="river">
+
+<!-- ═══════════ II. PAATA / PATA / PATTE ═══════════ -->
+<section>
+  <div class="sec-label">II · The Three Orbits</div>
+  <h2>पाता · पत · पत्ते</h2>
+  <p>These three are not separate. They orbit the Namaskar like the sun, moon and earth orbit each other. Together they form the complete Patanjali formula. Ancient cultures carried this symbol everywhere — in temples, in homes, in daily practice.</p>
+
+  <div class="three-pillars">
+    <div class="pillar p1">
+      <div class="p-deva">पाता</div>
+      <div class="p-eng">Paata</div>
+      <p class="p-desc">The one who <strong style="color:var(--gold);">knows</strong> and understands. Awareness. The quality of seeing clearly — what is, what nourishes, what harms. Paata is the observer.</p>
+    </div>
+    <div class="pillar p2">
+      <div class="p-deva">पत</div>
+      <div class="p-eng">Pata</div>
+      <p class="p-desc">The <strong style="color:var(--sage);">leaf</strong> — nature itself. The single leaf that connects to the whole tree. Pata is living nature, the source, the ground from which all growth rises.</p>
+    </div>
+    <div class="pillar p3">
+      <div class="p-deva">पत्ते</div>
+      <div class="p-eng">Patte</div>
+      <p class="p-desc">The <strong style="color:var(--terracotta);">many leaves</strong> — growth, expansion, abundance. When the single leaf becomes many, the tree is alive. Patte is the flowering of patrata itself.</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <p style="margin-bottom:0; text-align:center; font-style:italic; color:var(--cream-dim); font-size:16px;">
+      <span class="gold">Paata</span> sees clearly → <span class="sage">Pata</span> grounds in nature → <span class="terra">Patte</span> grows into abundance.<br>
+      One who knows, connects to nature, and lets life flourish. <span class="gold">This is Patanjali.</span>
+    </p>
+  </div>
+</section>
+
+<hr class="river">
+
+<!-- ═══════════ III. PATRATA ═══════════ -->
+<section>
+  <div class="sec-label">III · The Vessel</div>
+  <h2>पात्रता — Patrata</h2>
+  <p class="lead">
+    The body is a vessel. The mind is a vessel. What you pour into it — that is what comes out. This is not a theory. It is the simplest law of existence.
+  </p>
+
+  <div class="flow-steps">
+    <div class="flow-step">
+      <div class="fs-title">🌅 Morning — Set the Vessel</div>
+      <p class="fs-text">Begin with mantras. Shree Subrahmanya, Subrahmanya Hum, Gayatri, Sahastranama — any pure vibration. The vessel opens with what it first receives.</p>
+    </div>
+    <div class="flow-step">
+      <div class="fs-title">🧘 Stillness — Empty the Vessel</div>
+      <p class="fs-text">Like the New Moon, the mind must become empty before it can receive. Meditation, silence, open sky — these clean what has accumulated.</p>
+    </div>
+    <div class="flow-step">
+      <div class="fs-title">🎵 Music & Art — Fill with Light</div>
+      <p class="fs-text">After letters come sounds. After sounds comes music. Music purifies the vessel deeper than words can. Dance, song, creation — these are not luxuries, they are nourishment.</p>
+    </div>
+    <div class="flow-step">
+      <div class="fs-title">🌿 Nature & Movement — Sustain</div>
+      <p class="fs-text">Clean food. Clean water. Clean air. The body is the antenna — when it is healthy, it receives signals clearly. Walk, breathe, move. This is not optional.</p>
+    </div>
+    <div class="flow-step">
+      <div class="fs-title">🙏 Gratitude — The Multiplier</div>
+      <p class="fs-text">Gratitude to every letter, every word, every moment — this is what makes the vessel inexhaustible. Without gratitude, even the fullest vessel empties quickly.</p>
+    </div>
+  </div>
+</section>
+
+<hr class="river">
+
+<!-- ═══════════ IV. MANTRAS ═══════════ -->
+<section>
+  <div class="sec-label">IV · The Mantras</div>
+  <h2>Words That Open the Vessel</h2>
+
+  <div class="mantra-block">
+    <div class="mantra-deva">अक्षरम् परमं ब्रह्मा ज्योति रूपम् सनातनम्</div>
+    <div class="mantra-eng">Aksharam Paramam Brahma, Jyoti Rupam Sanatanaam</div>
+    <p class="mantra-meaning">The letter is the supreme Brahma. It is light in form. It is eternal. Every word you speak, every word you read — carries this.</p>
+  </div>
+
+  <div class="mantra-block" style="background: linear-gradient(180deg, rgba(122,158,126,0.05) 0%, transparent 100%); border-top-color: var(--sage-soft); border-bottom-color: var(--sage-soft);">
+    <div class="mantra-deva" style="color:var(--sage);">अक्षरातीत निजानंद मंगलम्</div>
+    <div class="mantra-eng">Akshratit Nijanand Mangalam</div>
+    <p class="mantra-meaning">That which is beyond even the letters — it is bliss in itself. It is auspicious. This is the home. This is what holds us.</p>
+  </div>
+
+  <div class="mantra-block" style="background: linear-gradient(180deg, rgba(192,122,90,0.05) 0%, transparent 100%); border-top-color: rgba(192,122,90,0.15); border-bottom-color: rgba(192,122,90,0.15);">
+    <div class="mantra-deva" style="color:var(--terracotta);">शुद्ध बुद्धि · निर्मल हृदय · निष्पाप मन</div>
+    <div class="mantra-eng">Shuddh Buddhi · Nirmal Hridaya · Nishpaap Mann</div>
+    <p class="mantra-meaning">Pure intellect. Clean heart. Innocent mind. These three together are so rare — only a child speaks from this place naturally. If we chant this daily, these three begin to return.</p>
+  </div>
+</section>
+
+<hr class="river">
+
+<!-- ═══════════ V. THE MOON ═══════════ -->
+<section>
+  <div class="sec-label">V · Mind and Moon</div>
+  <h2>मन और चन्द्रमा</h2>
+  <p>Mind is called <em>Mun</em> — and Moon is <em>Chandra</em>. They are mirrors of each other. The mind cycles like the moon. Understanding this cycle is understanding yourself.</p>
+
+  <div class="moon-strip">
+    <div class="moon-phase">
+      <span class="m-icon">🌑</span>
+      <div class="m-label">New Moon</div>
+      <p class="m-text">Empty the mind completely. Make space. This is not loss — this is preparation.</p>
+    </div>
+    <div class="moon-arrow">→</div>
+    <div class="moon-phase">
+      <span class="m-icon">🌓</span>
+      <div class="m-label">Waxing</div>
+      <p class="m-text">New things arrive. Fresh thoughts. The vessel begins to fill with what is clean.</p>
+    </div>
+    <div class="moon-arrow">→</div>
+    <div class="moon-phase">
+      <span class="m-icon">🌕</span>
+      <div class="m-label">Full Moon</div>
+      <p class="m-text">Amrit Prakash — the moonlight of clarity. The mind is full and luminous. This is when you see truth.</p>
+    </div>
+  </div>
+
+  <div class="card sky-top">
+    <p style="margin-bottom:0; font-style:italic;">
+      <span class="sky-c">Washington Post</span> — the name itself says: do not keep washing the same cloth in circles. <em>Wash</em> means to release. Bring the <strong>new</strong>. This is why <span class="gold">Navaratna</span> — the nine gems — is about <em>renewal</em>, not repetition.
+    </p>
+  </div>
+</section>
+
+<hr class="river">
+
+<!-- ═══════════ VI. AKSHAY PATRA ═══════════ -->
+<section>
+  <div class="sec-label">VI · The Inexhaustible Vessel</div>
+  <h2>अक्षय पात्र</h2>
+  <p class="lead">
+    An inexhaustible vessel is one that never empties. Plant good seeds into it — and it gives fruits, flowers, nourishment — forever. This is not myth. <span class="gold">Gita Press</span> is living proof.
+  </p>
+
+  <div class="signal-row">
+    <div class="signal-item">
+      <div class="sig-icon">📚</div>
+      <div>
+        <div class="sig-title">Gita Press — The Model</div>
+        <p class="sig-desc">20 million books a year. No advertisements. Pure content. 200 crore rupees turnover. This is what patrata does when it is present — efficiency, clarity, no waste.</p>
+      </div>
+    </div>
+    <div class="signal-item">
+      <div class="sig-icon">💧</div>
+      <div>
+        <div class="sig-title">Water and Wind</div>
+        <p class="sig-desc">They never stop flowing. They never become stale. This is the nature of akshay — continuous, fresh, alive. Life imitates this when the vessel is clean.</p>
+      </div>
+    </div>
+    <div class="signal-item">
+      <div class="sig-icon">🌱</div>
+      <div>
+        <div class="sig-title">Seeds, Not Garbage</div>
+        <p class="sig-desc">What we plant is what grows. Entertainment without substance, gossip, blame — these are not seeds. Music, stories, wonder, celebration — these are seeds.</p>
+      </div>
+    </div>
+    <div class="signal-item">
+      <div class="sig-icon">🎓</div>
+      <div>
+        <div class="sig-title">Tartam Gyan</div>
+        <p class="sig-desc">The art of speaking melodically, sweetly, constructively — 200 years old, from the era of Aurangzeb. This knowledge uplifts. This is what real communication is.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="river">
+
+<!-- ═══════════ VII. WHAT THE WORLD SHOWS ═══════════ -->
+<section>
+  <div class="sec-label">VII · Reading the World</div>
+  <h2>The World Is Speaking</h2>
+  <p>We do not need to blame. We need to <em>see</em>. The world shows us, every single day, where coherence is rising and where it is not. This is not judgment. This is awareness — and awareness is the first step.</p>
+
+  <div class="signal-row">
+    <div class="signal-item">
+      <div class="sig-icon">🎵</div>
+      <div>
+        <div class="sig-title">Music & Dance Rising</div>
+        <p class="sig-desc">Where celebration grows, where people gather and create together — quantum coherence is high. This is a good signal. Watch for it.</p>
+      </div>
+    </div>
+    <div class="signal-item">
+      <div class="sig-icon">🏛️</div>
+      <div>
+        <div class="sig-title">Beautiful Architecture</div>
+        <p class="sig-desc">Clean cities, thoughtful design, green spaces — these signal that the vessel of a place is being filled with care. Pyongyang teaches this lesson, even from contradiction.</p>
+      </div>
+    </div>
+    <div class="signal-item">
+      <div class="sig-icon">🌍</div>
+      <div>
+        <div class="sig-title">Nature's Health</div>
+        <p class="sig-desc">Rivers, forests, birds, soil — these are the oldest journalists. They report without words. A healthy river means a healthy civilization's vessel.</p>
+      </div>
+    </div>
+    <div class="signal-item">
+      <div class="sig-icon">🧒</div>
+      <div>
+        <div class="sig-title">Children's Eyes</div>
+        <p class="sig-desc">Children see from pure patrata — shuddh buddhi, nirmal hridaya, nishpaap mann. What they show us is the truest mirror. Watch what they say.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="card sage-top" style="margin-top:24px;">
+    <p style="margin-bottom:0; font-style:italic; text-align:center;">
+      <span class="sage">Narad Muni</span> — the first journalist. He could see, experience, and carry truth without distortion. He did not blame. He <em>informed</em>. He brought clarity to the gods themselves. This is what communication can be — when the vessel is clean.
+    </p>
+  </div>
+</section>
+
+<hr class="river">
+
+<!-- ═══════════ VIII. THE BODY'S CONSTITUTION ═══════════ -->
+<section>
+  <div class="sec-label">VIII · Constitution</div>
+  <h2>शरीर का संविधान</h2>
+  <p class="lead">
+    A written constitution has gaps. It is interpreted by humans — and humans carry their own vessels. But the <span class="gold">body has its own constitution</span> — one that is older than any written law. It is called <em>Patrata</em>.
+  </p>
+
+  <div class="card">
+    <p>Every written constitution — of a nation, of an institution — tries to answer: what is allowed, what is not, how should things be regulated. But notice: <strong style="color:var(--cream);">the body already knows this.</strong> A healthy body knows what food to accept and what to reject. A clear mind knows what thought to hold and what to release. This self-regulation is not taught. It is <em>awakened</em> — when the vessel is clean.</p>
+    <p style="margin-bottom:0;">The Anjali mudra is the body's own regulatory system. Ann and Jal — food and water — are held inside the hands. When you sit in this mudra regularly, the body begins to answer its own questions. No external law needed. <span class="gold">Patrata is the constitution that cannot be written — only lived.</span></p>
+  </div>
+
+  <div class="signal-row">
+    <div class="signal-item">
+      <div class="sig-icon">📜</div>
+      <div>
+        <div class="sig-title">Written Constitution</div>
+        <p class="sig-desc">Created by humans. Has gaps. Needs interpretation. Changes with time. Regulates from outside. Cannot touch what is inside the vessel.</p>
+      </div>
+    </div>
+    <div class="signal-item">
+      <div class="sig-icon">🙏</div>
+      <div>
+        <div class="sig-title">Patrata — The Living Constitution</div>
+        <p class="sig-desc">Present in the body. Self-regulating. No gaps. No interpretation needed. Awakens when the vessel is clean. This is the older law.</p>
+      </div>
+    </div>
+    <div class="signal-item">
+      <div class="sig-icon">🍃</div>
+      <div>
+        <div class="sig-title">The Body Knows</div>
+        <p class="sig-desc">A healthy body rejects poison without being told. A clear mind drops confusion without effort. This is constitution at its deepest — built into existence itself.</p>
+      </div>
+    </div>
+    <div class="signal-item">
+      <div class="sig-icon">⚖️</div>
+      <div>
+        <div class="sig-title">Regulation vs. Awakening</div>
+        <p class="sig-desc">External regulation controls behavior. Inner patrata transforms it. A society of awakened vessels does not need heavy regulation — it self-corrects, naturally.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="river">
+
+<!-- ═══════════ IX. THE JOURNALIST'S PATRATA ═══════════ -->
+<section>
+  <div class="sec-label">IX · The Journalist</div>
+  <h2>पत्रकार की पात्रता</h2>
+  <p class="lead">
+    A journalist is not someone who writes. A journalist is someone whose <span class="gold">vessel is so clean</span> that truth passes through them without distortion. The ancients showed us exactly what this looks like.
+  </p>
+
+  <div class="signal-row">
+    <div class="signal-item">
+      <div class="sig-icon">🪷</div>
+      <div>
+        <div class="sig-title">Narad Muni</div>
+        <p class="sig-desc">The first journalist of existence. He could see, experience, and carry news across all realms — without distortion, without bias. He did not blame. He <em>informed</em>. Truth moved through him like light through glass.</p>
+      </div>
+    </div>
+    <div class="signal-item">
+      <div class="sig-icon">👑</div>
+      <div>
+        <div class="sig-title">Birbal</div>
+        <p class="sig-desc">Spoke truth directly to King Akbar — even when the king was wrong. Independent. Not afraid. This is what a journalist with patrata does: speaks to power without losing clarity.</p>
+      </div>
+    </div>
+    <div class="signal-item">
+      <div class="sig-icon">🎭</div>
+      <div>
+        <div class="sig-title">Tenali Rama</div>
+        <p class="sig-desc">Spoke truth to Krishnadevaraya with wit and wisdom. He did not confront — he illuminated. He showed the king what the ministers could not see. Cleverness in service of truth.</p>
+      </div>
+    </div>
+    <div class="signal-item">
+      <div class="sig-icon">📖</div>
+      <div>
+        <div class="sig-title">Sanjay</div>
+        <p class="sig-desc">The blind commentator of Mahabharata. He narrated the war to King Dhritarashtra — clearly, completely, without hiding anything. A journalist who saw everything and held nothing back.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="card sage-top">
+    <p style="margin-bottom:6px;"><strong style="color:var(--sage);">The pattern is clear:</strong> Every great communicator in ancient wisdom had one thing in common — their vessel was clean. They did not fill themselves with garbage first and then try to produce truth. They <em>emptied</em> first. Then truth filled them. Then it flowed out — pure.</p>
+    <p style="margin-bottom:0; font-style:italic; color:var(--cream-dim);">A journalist without patrata is like a vessel full of noise trying to carry water. The water gets contaminated before it reaches anyone. <span class="gold">Patrata is not optional for a journalist — it is the foundation.</span></p>
+  </div>
+</section>
+
+<hr class="river">
+
+<!-- ═══════════ X. RIGHT SCANNING ═══════════ -->
+<section>
+  <div class="sec-label">X · Scanning</div>
+  <h2>सही स्कैनिंग — Right Scanning</h2>
+  <p class="lead">
+    Scanning does not mean reading a barcode. <span class="gold">Scanning means seeing deeply</span> — seeing who deserves what, what is merit, what is waste. The Scandinavian countries carry this word in their very name.
+  </p>
+
+  <div class="card sky-top">
+    <p><strong style="color:var(--sky);">Scan</strong> = to see deeply, ethically, with full attention. When a system truly scans — it gives the right thing to the right person, at the right time. This is not charity. This is not politics. This is <em>accuracy</em>.</p>
+    <p style="margin-bottom:0;">The <strong>Nobel Prize</strong> is an example of right scanning — recognizing genuine contribution, not connections, not politics, not popularity. Sweden built this. It is the Scandinavian model in action.</p>
+  </div>
+
+  <div class="signal-row">
+    <div class="signal-item">
+      <div class="sig-icon">🔍</div>
+      <div>
+        <div class="sig-title">What Right Scanning Sees</div>
+        <p class="sig-desc">Merit. Contribution. Genuine work. The one who has given, not the one who has grabbed. Right scanning does not care about title or fame — it sees the vessel.</p>
+      </div>
+    </div>
+    <div class="signal-item">
+      <div class="sig-icon">🚫</div>
+      <div>
+        <div class="sig-title">Zero Tolerance</div>
+        <p class="sig-desc">Low-quality content. Gossip dressed as news. Entertainment that degrades. Right scanning has no space for these. They do not pass through a clean system.</p>
+      </div>
+    </div>
+    <div class="signal-item">
+      <div class="sig-icon">🏆</div>
+      <div>
+        <div class="sig-title">Nobel — The Model</div>
+        <p class="sig-desc">Sweden gives the deserving what they deserve. Not based on nationality, religion, or politics. Based on what was contributed. This is scanning at its highest.</p>
+      </div>
+    </div>
+    <div class="signal-item">
+      <div class="sig-icon">📰</div>
+      <div>
+        <div class="sig-title">Journalism + Scanning</div>
+        <p class="sig-desc">A journalist who can right-scan — sees what matters, drops what does not, and brings only what nourishes. This is the press doing its real job: pressing away what is not needed.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="river">
+
+<!-- ═══════════ XI. VIJAYANAGARA ═══════════ -->
+<section>
+  <div class="sec-label">XI · Civilization</div>
+  <h2>विजयनगर — What Patrata Builds</h2>
+  <p class="lead">
+    No modern technology. No satellites. No internet. And yet — <span class="gold">Vijayanagara Samrajya</span> was called the epitome of human civilization by every foreign traveler who visited. What did they have that we struggle with today?
+  </p>
+
+  <div class="card terra-top">
+    <p><strong style="color:var(--terracotta);">Krishnadevaraya</strong> and <strong style="color:var(--terracotta);">Tenali Rama</strong> — a king and his wiseman. No press council. No journalism school. No regulation body. And yet — governance was creative, fair, and celebrated for centuries. How?</p>
+    <p style="margin-bottom:0;">Because <strong>patrata was present</strong>. The king had a clean vessel. The wiseman had a clean vessel. Truth flowed between them without friction. The civilization they built — Hampi, now a UNESCO World Heritage Site — still speaks after 500 years. <em>Buildings decay. But the patrata that created them — that lives in stone.</em></p>
+  </div>
+
+  <div class="signal-row">
+    <div class="signal-item">
+      <div class="sig-icon">🏛️</div>
+      <div>
+        <div class="sig-title">Hampi — Still Speaks</div>
+        <p class="sig-desc">The Vithala Temple, the stone chariot, the Tungabhadra River landscape — these are not just architecture. They are patrata made visible. What a clean vessel creates — it creates beauty that outlasts centuries.</p>
+      </div>
+    </div>
+    <div class="signal-item">
+      <div class="sig-icon">🌊</div>
+      <div>
+        <div class="sig-title">Krishna River — Respected</div>
+        <p class="sig-desc">SM Krishna, Karnataka's Chief Minister — did not build near the river. He understood: the river is sacred. This small decision is a huge signal. Patrata shows in what you do NOT take.</p>
+      </div>
+    </div>
+    <div class="signal-item">
+      <div class="sig-icon">💻</div>
+      <div>
+        <div class="sig-title">SM Krishna & Y2K</div>
+        <p class="sig-desc">He bridged India into the technology age during Y2K. Not by force — by being the right vessel at the right time. Bengaluru's IT revolution began here. A leader with patrata becomes a medium for what needs to emerge.</p>
+      </div>
+    </div>
+    <div class="signal-item">
+      <div class="sig-icon">🌟</div>
+      <div>
+        <div class="sig-title">Foreign Praise = True Value</div>
+        <p class="sig-desc">When outsiders come and praise — that is when true value is seen. Vijayanagara was praised by every traveler. Not because they marketed it. Because patrata was radiating.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <p style="margin-bottom:0; font-style:italic; text-align:center;">
+      <span class="gold">Hare Ram Hare Krishna</span> — the most resonant mantra. Krishna the river, Krishna the deity, Krishna the name of great leaders — all working in tandem. Not coincidence. <em>Resonance.</em> When patrata is present, names and events align.
+    </p>
+  </div>
+</section>
+
+<hr class="river">
+
+<!-- ═══════════ XII. GRAHAN ═══════════ -->
+<section>
+  <div class="sec-label">XII · Receiving</div>
+  <h2>ग्रहण — The Art of Receiving</h2>
+  <p class="lead">
+    It is not enough to give good things. The <span class="gold">receiver must also have patrata</span>. A beautiful seed planted in poisoned soil gives nothing. Grahan — the act of receiving — is itself an art.
+  </p>
+
+  <div class="card">
+    <p>Sanskrit connects these beautifully and simply — in one thread:</p>
+    <div class="three-pillars" style="margin-top:20px; margin-bottom:8px;">
+      <div class="pillar p1">
+        <div class="p-deva" style="font-size:20px;">पित्रि</div>
+        <div class="p-eng">Pitra</div>
+        <p class="p-desc">The ancestors. What was passed down. The lineage of the vessel.</p>
+      </div>
+      <div class="pillar p2">
+        <div class="p-deva" style="font-size:20px;">पुत्र</div>
+        <div class="p-eng">Putra</div>
+        <p class="p-desc">The son. The next generation. The one who receives what was planted.</p>
+      </div>
+      <div class="pillar p3">
+        <div class="p-deva" style="font-size:20px;">पात्र</div>
+        <div class="p-eng">Patra</div>
+        <p class="p-desc">The vessel. The capacity. The one who holds and transforms.</p>
+      </div>
+    </div>
+    <p style="margin-bottom:6px; margin-top:18px;"><strong style="color:var(--cream);">And then:</strong></p>
+    <div class="signal-row" style="margin-top:10px;">
+      <div class="signal-item">
+        <div class="sig-icon">🏠</div>
+        <div>
+          <div class="sig-title">Graha — The Home</div>
+          <p class="sig-desc">The space where life happens. The home also needs patrata — what enters it, what stays, what is released. A home is a vessel too.</p>
+        </div>
+      </div>
+      <div class="signal-item">
+        <div class="sig-icon">👩</div>
+        <div>
+          <div class="sig-title">Grahani — The One Who Manages</div>
+          <p class="sig-desc">The one who decides what enters the home, what the family eats, what the children hear. Her patrata shapes the next generation directly.</p>
+        </div>
+      </div>
+    </div>
+    <p style="margin-bottom:0; margin-top:18px; font-style:italic; color:var(--cream-dim);">Pitra → Putra → Patra → Graha → Grahani. Sanskrit threads them all in one breath. <span class="gold">The chain of vessels.</span> Each one receives from the previous. Each one passes to the next. If any vessel in the chain is dirty — everything after it gets contaminated. If any vessel is clean — everything after it gets purified.</p>
+  </div>
+
+  <div class="card sage-top">
+    <p style="margin-bottom:0;"><strong style="color:var(--sage);">उत्कालेश्वरम् व्यवस्था — Utkaleshwaram Vyavastha</strong> — the system of uplifting. This is not a philosophy. It is a <em>practice</em>. Every action, every word, every piece of information we share — it either lifts or it drags. There is no neutral. Choose uplift. Always. This is what the press, the teacher, the parent, the leader — all must do. Not because of a rule. Because of <span class="gold">patrata</span>.</p>
+  </div>
+</section>
+
+<hr class="river">
+
+<!-- ═══════════ XIII. THE PRACTICE ═══════════ -->
+<section>
+  <div class="sec-label">XIII · Daily Practice</div>
+  <h2>🙏 How to Use This Formula</h2>
+  <p>No special equipment. No cost. No institution needed. Just this:</p>
+
+  <div class="card terra-top">
+    <div class="flow-steps" style="margin-bottom:0;">
+      <div class="flow-step">
+        <div class="fs-title">Sit. Place hands in Anjali (Namaskar).</div>
+        <p class="fs-text">Hands together, at chest. Hold for as long as it feels natural. The mudra itself begins to teach — what to eat, what to drink, how to be. Ann and Jal are inside the hands.</p>
+      </div>
+      <div class="flow-step">
+        <div class="fs-title">Hold Paata — See clearly.</div>
+        <p class="fs-text">With eyes closed, simply observe. What is in the mind? Do not judge it. Just see it. This is Paata — the observer.</p>
+      </div>
+      <div class="flow-step">
+        <div class="fs-title">Feel Pata — Touch nature.</div>
+        <p class="fs-text">Think of a leaf. A tree. The sky. A river. Feel yourself connected to it. You are not separate from nature. You are nature holding hands with itself.</p>
+      </div>
+      <div class="flow-step">
+        <div class="fs-title">Let Patte grow — Release.</div>
+        <p class="fs-text">Now let go. Do not hold any thought. Let the vessel be empty and full at the same time. Growth happens here — in this space.</p>
+      </div>
+      <div class="flow-step">
+        <div class="fs-title">Bow. Say thank you. Begin the day.</div>
+        <p class="fs-text">Gratitude to the letters, to the breath, to the hands, to the morning. Now the vessel is set. What emerges through the day will carry this.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ SUPPORT ═══════════ -->
+<section style="text-align:center; margin-top:20px;">
+  <div class="card" style="max-width:340px; margin-left:auto; margin-right:auto; padding:32px 28px 28px; background:linear-gradient(180deg, #1e1b16 0%, #221f1a 100%); border-color:rgba(212,168,83,0.2);">
+    <div class="sec-label" style="margin-bottom:14px; opacity:0.5;">Support This Work</div>
+    <img
+      src="https://raw.githubusercontent.com/krishnabhearth-svg/Kraizen-Journal/main/upi%20pay%20qr%20code.jpeg"
+      alt="UPI Payment QR Code"
+      style="max-width:220px; width:100%; border-radius:10px; border:1px solid rgba(212,168,83,0.15); margin-bottom:14px;"
+    />
+    <p style="font-family:'Cinzel',serif; font-size:13px; letter-spacing:2px; color:var(--gold); text-transform:uppercase; margin-bottom:4px; opacity:0.8;">Scan to Pay via UPI</p>
+    <p style="font-size:13px; color:var(--cream-dim); margin-bottom:0; font-style:italic;">Every contribution nourishes the vessel.</p>
+  </div>
+</section>
+
+<!-- ═══════════ FOOTER ═══════════ -->
+<footer class="footer">
+  <div class="f-hands">🙏</div>
+  <div class="f-formula">Paata · Pata · Patte · Anjali</div>
+  <div class="f-formula" style="margin-bottom:18px; opacity:0.35;">पाता · पत · पत्ते · अंजलि</div>
+  <div class="f-author">Krishna Heda</div>
+  <p class="f-sub">Bharat &nbsp;·&nbsp; in collaboration with Claude AI &nbsp;·&nbsp; Anthropic</p>
+  <p class="f-sub" style="margin-top:6px; opacity:0.4;">krishna.bh.earth@gmail.com</p>
+</footer>
+
+</div><!-- /wrap -->
+</body>
+</html>
